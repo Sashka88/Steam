@@ -1,0 +1,15 @@
+steam\framework\elements\BaseElement.class
+steam\framework\BaseTest.class
+steam\framework\BrowserFactory.class
+steam\framework\Logger.class
+steam\framework\elements\Button.class
+steam\framework\PropertyReader.class
+steam\page\ActionPage.class
+steam\framework\elements\Label.class
+steam\test\SteamProject.class
+steam\page\MainMenu.class
+steam\framework\Browser.class
+steam\framework\elements\TextBox.class
+steam\page\HomePage.class
+steam\framework\BasePage.class
+steam\page\BaseSteamPage.class

@@ -1,0 +1,15 @@
+D:\IdeaProject\Steam\src\test\java\steam\framework\BaseTest.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\BasePage.java
+D:\IdeaProject\Steam\src\test\java\steam\page\HomePage.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\BrowserFactory.java
+D:\IdeaProject\Steam\src\test\java\steam\page\ActionPage.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\elements\Label.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\Browser.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\elements\BaseElement.java
+D:\IdeaProject\Steam\src\test\java\steam\page\MainMenu.java
+D:\IdeaProject\Steam\src\test\java\steam\page\BaseSteamPage.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\elements\TextBox.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\Logger.java
+D:\IdeaProject\Steam\src\test\java\steam\test\SteamProject.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\PropertyReader.java
+D:\IdeaProject\Steam\src\test\java\steam\framework\elements\Button.java
