@@ -27,39 +27,70 @@ public abstract class BaseElement {
         return element;
     }
 
+    public static void waitUntilPresenceOfAllElements(By xpath) {
+        new WebDriverWait(Browser.driver, WAIT_TIMEOUT_SECONDS)
+                .ignoring(StaleElementReferenceException.class)
+                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(xpath));
+    }
+
+    private void waitUntilPresenceOfElement(By xpath) {
+        new WebDriverWait(Browser.driver, WAIT_TIMEOUT_SECONDS)
+                .ignoring(StaleElementReferenceException.class)
+                .until(ExpectedConditions.presenceOfElementLocated(xpath));
+    }
+
+    private void waitUntilElementToBeClickable(By xpath) {
+        new WebDriverWait(Browser.driver, WAIT_TIMEOUT_SECONDS)
+                .ignoring(StaleElementReferenceException.class)
+                .until(ExpectedConditions.elementToBeClickable(xpath));
+    }
+
+    private WebElement getPresentElement() {
+        waitUntilPresenceOfElement(xpath);
+        return element = driver.findElement(xpath);
+    }
+
+    private WebElement getClickableElement() {
+        getPresentElement();
+        waitUntilElementToBeClickable(xpath);
+        return element;
+    }
+
     public void click() {
-        findWebElement().click();
+        getClickableElement().click();
     }
 
     public void hoverElement() {
         new Actions(driver).moveToElement(findWebElement()).perform();
     }
+
     public void hoverElementAndClick() {
         new Actions(driver).moveToElement(findWebElement()).click().perform();
     }
 
 
-    public String checkIsDisplayed() {
+    public Boolean checkIsDisplayed() {
         try {
             WebElement element = driver.findElement(xpath);
-            return String.valueOf(element.isDisplayed());
+            return element.isDisplayed();
         } catch (NoSuchElementException e) {
-            return "false";
+            return false;
         }
     }
-    public void waitUntilIsDisplayed(WebElement button) {
-        new WebDriverWait(browser.driver, WAIT_TIMEOUT_SECONDS).until(condition -> button.isDisplayed());
-    }
-
-    public void waitUntilIsInvisibilityOfElement(By xpath) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.invisibilityOfElementLocated(xpath));
-    }
-
-    public void waitUntilVisibilityOfAllElementsLocated(By xpath) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .ignoring(StaleElementReferenceException.class)
-                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(xpath));
-    }
 }
+//    public void waitUntilIsDisplayed(WebElement button) {
+//        new WebDriverWait(browser.driver, WAIT_TIMEOUT_SECONDS).until(condition -> button.isDisplayed());
+//    }
+//
+//    public void waitUntilIsInvisibilityOfElement(By xpath) {
+//        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+//                .until(ExpectedConditions.invisibilityOfElementLocated(xpath));
+//    }
+//
+//    public void waitUntilVisibilityOfAllElementsLocated(By xpath) {
+//        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+//                .ignoring(StaleElementReferenceException.class)
+//                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(xpath));
+//    }
+//}
 

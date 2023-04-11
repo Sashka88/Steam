@@ -18,11 +18,11 @@ public class HomePage extends BaseSteamPage {
     public HomePage defineLanguage() {
         btnLanguageMenu.click();
         Button language = new Button(By.xpath(String.format(btnLanguage)));
-        switch (language.checkIsDisplayed()) {
-            case "true": {
+        switch (String.valueOf(language.checkIsDisplayed())) {
+            case "true" -> {
                 language.click();
             }
-            case "false": {
+            case "false" -> {
                 btnLanguageMenu.click();
             }
         }
