@@ -1,14 +1,17 @@
 package steam.framework;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import static steam.framework.BrowserFactory.getWebDriver;
 
 public class Browser {
     public static WebDriver driver;
+    public static JavascriptExecutor executor;
 
     public Browser(){
-    Browser.driver = getWebDriver();
+        Browser.driver = getWebDriver();
+        Browser.executor = (JavascriptExecutor)driver;
 }
 
     public void maximizeWindow() {
