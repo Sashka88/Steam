@@ -3,7 +3,7 @@ package steam.framework;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-import static steam.framework.BrowserFactory.getWebDriver;
+import static steam.framework.DriverFactory.getWebDriver;
 
 public class Browser {
     public static WebDriver driver;

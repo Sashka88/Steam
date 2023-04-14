@@ -24,11 +24,6 @@ public abstract class BaseElement {
         this.xpath = xpath;
     }
 
-    private WebElement findWebElement() {
-        WebElement element = driver.findElement(xpath);
-        return element;
-    }
-
     private void waitUntilPresenceOfElement(By xpath) {
         new WebDriverWait(Browser.driver, WAIT_TIMEOUT_SECONDS)
                 .ignoring(StaleElementReferenceException.class)
@@ -39,6 +34,11 @@ public abstract class BaseElement {
         new WebDriverWait(Browser.driver, WAIT_TIMEOUT_SECONDS)
                 .ignoring(StaleElementReferenceException.class)
                 .until(ExpectedConditions.elementToBeClickable(xpath));
+    }
+    private void waitUntilElementToBeVisible(By xpath) {
+        new WebDriverWait(Browser.driver, WAIT_TIMEOUT_SECONDS)
+                .ignoring(StaleElementReferenceException.class)
+                .until(ExpectedConditions.visibilityOfElementLocated(xpath));
     }
 
     private WebElement getPresentElement() {
@@ -56,12 +56,8 @@ public abstract class BaseElement {
         getClickableElement().click();
     }
 
-    public void hoverElement() {
-        new Actions(driver).moveToElement(findWebElement()).perform();
-    }
-
     public void hoverElementAndClick() {
-        new Actions(driver).moveToElement(findWebElement()).click().perform();
+        new Actions(driver).moveToElement(getVisibleElement()).click().perform();
     }
 
 
@@ -73,6 +69,11 @@ public abstract class BaseElement {
             return false;
         }
     }
+    public Boolean checkIsDisplayedWithWait() {
+        getPresentElement();
+        waitUntilElementToBeVisible(xpath);
+        return element.isDisplayed();
+        }
 
     protected abstract List<? extends BaseElement> returnElementsList();
 
@@ -91,19 +92,26 @@ public abstract class BaseElement {
         waitUntilPresentAll();
         webElementsList = driver.findElements(xpath);
     }
+    private WebElement getVisibleElement() {
+        getPresentElement();
+        waitUntilElementToBeVisible(xpath);
+        return element;
+    }
+
 
     public String getText() {
         return getPresentElement().getText();
     }
 
+    public String getXpathAsString() {return String.valueOf(xpath).substring(String.valueOf(xpath).indexOf("/"));}
+
     public void clickWithoutWait(Button next) {
         try {
-//            driver.findElement(xpath).click();
-            getPresentElement().click();
+            driver.findElement(xpath).click();
         } catch (InvalidSelectorException | ElementNotInteractableException e) {
             next.click();
             clickWithoutWait(next);
         }
-
     }
+
 }
