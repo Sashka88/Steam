@@ -1,4 +1,0 @@
-# Created at 2023-04-07T19:01:45.760
-Boot Manifest-JAR contains absolute paths in classpath 'D:\IdeaProject\Steam\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-

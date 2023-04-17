@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
     <test name="SmokeTest">
-        <parameter name="language" value="русский"></parameter>
+        <parameter name="language" value="English"></parameter>
     <classes>
         <class name="steam.test.SteamProject"/>
     </classes>

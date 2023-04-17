@@ -2,19 +2,30 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-04-07T19:01:46 MSK" name="Suite" finished-at="2023-04-07T19:01:53 MSK" duration-ms="6748">
+  <suite started-at="2023-04-17T19:58:52 MSK" name="Suite" finished-at="2023-04-17T19:59:07 MSK" duration-ms="15218">
     <groups>
     </groups>
-    <test started-at="2023-04-07T19:01:46 MSK" name="SmokeTest" finished-at="2023-04-07T19:01:53 MSK" duration-ms="6748">
+    <test started-at="2023-04-17T19:58:52 MSK" name="SmokeTest" finished-at="2023-04-17T19:59:07 MSK" duration-ms="15218">
       <class name="steam.test.SteamProject">
-        <test-method is-config="true" signature="setup()[pri:0, instance:steam.test.SteamProject@548a102f]" started-at="2023-04-07T19:01:46 MSK" name="setup" finished-at="2023-04-07T19:01:49 MSK" duration-ms="2944" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:steam.test.SteamProject@1d548a08]" started-at="2023-04-17T19:58:52 MSK" name="setup" finished-at="2023-04-17T19:58:54 MSK" duration-ms="2334" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="steamTest()[pri:0, instance:steam.test.SteamProject@548a102f]" started-at="2023-04-07T19:01:49 MSK" name="steamTest" finished-at="2023-04-07T19:01:53 MSK" duration-ms="3779" status="PASS">
+        <test-method signature="steamTest(java.lang.String)[pri:0, instance:steam.test.SteamProject@1d548a08]" started-at="2023-04-17T19:58:54 MSK" name="steamTest" finished-at="2023-04-17T19:59:06 MSK" duration-ms="12500" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[English]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- steamTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:steam.test.SteamProject@1d548a08]" started-at="2023-04-17T19:59:06 MSK" name="teardown" finished-at="2023-04-17T19:59:07 MSK" duration-ms="361" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
       </class> <!-- steam.test.SteamProject -->
     </test> <!-- SmokeTest -->
   </suite> <!-- Suite -->
