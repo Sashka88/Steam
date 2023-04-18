@@ -44,7 +44,7 @@ public class ActionPage extends BaseSteamPage {
             if (!label.getText().isEmpty() && saleList.get(labels.indexOf(label)) == 0) {
                 saleList.set(
                         labels.indexOf(label),
-                        Integer.valueOf(label.getText().substring(1,  2)));
+                        Integer.valueOf(label.getText().substring(1,  3)));
                 saleLabelsList.add(label);
             }
         }

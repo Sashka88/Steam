@@ -9,10 +9,10 @@ import org.openqa.selenium.By;
 public class NavigationMenu {
     private String btnMenu = "//a[contains(@class, 'pulldown_desktop')][contains(text(), '%s')]";
     private String btnSubMenu = "//a[@class = 'popup_menu_item' and contains(text(), '%s')]";
-    private Label pageLocator = new Label(By.xpath("//div[@id='store_nav_area']"));
+    private Label lblNavigationMenu = new Label(By.xpath("//div[@id='store_nav_area']"));
 
     public NavigationMenu() {
-        checkNavigationMenuIsDisplayed(pageLocator);
+        checkNavigationMenuIsDisplayed(lblNavigationMenu);
     }
 
     private <T extends BaseElement> void checkNavigationMenuIsDisplayed(T element) {

@@ -7,7 +7,7 @@ public class AgeCheckPage extends BaseSteamPage {
     private NavigationMenu navigationMenu;
     private Button btnForAge = new Button(By.xpath("//select[@id = 'ageYear']"));
     private Button btnCurrentYear = new Button(By.xpath("//option[@selected='true']"));
-    private String accessYear = "//select[@id = 'ageYear']/option[@value='%s']";
+    private String xpathAccessYear = "//select[@id = 'ageYear']/option[@value='%s']";
     private Button btnViewPage = new Button(By.xpath("//a[@id='view_product_page_btn']"));
 
     public AgeCheckPage() {
@@ -18,7 +18,7 @@ public class AgeCheckPage extends BaseSteamPage {
 
     public AgeCheckPage selectDate(){
         btnForAge.click();
-        Button btnAccessYear = new Button (By.xpath(String.format(accessYear, (Integer.parseInt(btnCurrentYear.getText())) - 18)));
+        Button btnAccessYear = new Button (By.xpath(String.format(xpathAccessYear, (Integer.parseInt(btnCurrentYear.getText())) - 18)));
         btnAccessYear.click();
         return this;
     }
