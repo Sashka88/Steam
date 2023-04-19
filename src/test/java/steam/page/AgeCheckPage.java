@@ -2,6 +2,7 @@ package steam.page;
 
 import framework.elements.Button;
 import org.openqa.selenium.By;
+import steam.page.components.NavigationMenu;
 
 public class AgeCheckPage extends BaseSteamPage {
     private NavigationMenu navigationMenu;

@@ -1,7 +1,7 @@
 package framework.elements;
 
 import framework.browser.Browser;
-import framework.browser.JavaScript;
+import framework.JavaScript;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;

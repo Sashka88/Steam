@@ -2,6 +2,7 @@ package steam.page;
 
 import framework.elements.Label;
 import org.openqa.selenium.By;
+import steam.page.components.NavigationMenu;
 
 public class HomePage extends BaseSteamPage {
     private NavigationMenu navigationMenu;

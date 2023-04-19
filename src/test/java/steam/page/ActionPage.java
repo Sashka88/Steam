@@ -3,10 +3,10 @@ package steam.page;
 import framework.elements.Button;
 import framework.elements.Label;
 import org.openqa.selenium.By;
+import steam.page.components.NavigationMenu;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
 public class ActionPage extends BaseSteamPage {
@@ -44,7 +44,7 @@ public class ActionPage extends BaseSteamPage {
             if (!label.getText().isEmpty() && saleList.get(labels.indexOf(label)) == 0) {
                 saleList.set(
                         labels.indexOf(label),
-                        Integer.valueOf(label.getText().substring(1,  3)));
+                        Integer.valueOf(label.getText().substring(1,3)));
                 saleLabelsList.add(label);
             }
         }

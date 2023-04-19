@@ -16,7 +16,6 @@ public class PropertyLocalizationReader {
     }
 
     public String getProperty(String key) {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(filename);
-        return resourceBundle.getString(key);
+       return PropertyReader.getProperty(filename, key);
     }
 }

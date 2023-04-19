@@ -1,4 +1,4 @@
-package framework;
+package steam.test;
 
 import framework.services.FileDownloader;
 import org.testng.annotations.AfterMethod;

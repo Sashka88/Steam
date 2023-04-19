@@ -1,6 +1,6 @@
 package framework.services;
 
-import framework.BaseTest;
+import steam.test.BaseTest;
 import framework.browser.Browser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.FluentWait;

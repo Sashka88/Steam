@@ -1,6 +1,6 @@
 package steam.page;
 
-import framework.BaseTest;
+import steam.test.BaseTest;
 import framework.elements.Button;
 import framework.elements.Label;
 import org.openqa.selenium.By;

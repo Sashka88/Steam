@@ -4,7 +4,7 @@
     <test name="SmokeTest">
         <parameter name="language" value="English"></parameter>
     <classes>
-        <class name="steam.test.SteamProject"/>
+        <class name="steam.test.SteamTest"/>
     </classes>
     </test>
 </suite>

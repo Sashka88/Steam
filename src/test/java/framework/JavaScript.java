@@ -1,4 +1,4 @@
-package framework.browser;
+package framework;
 
 import org.apache.commons.io.IOUtils;
 
