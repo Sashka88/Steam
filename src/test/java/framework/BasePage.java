@@ -11,5 +11,4 @@ public abstract class BasePage {
     protected  <T extends BaseElement> void checkPageElementIsDisplayed(T element) {
         Assert.assertTrue(element.checkIsDisplayedWithWait(), "Incorrect page is opened");
     }
-
 }

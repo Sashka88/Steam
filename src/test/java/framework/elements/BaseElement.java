@@ -82,11 +82,10 @@ public abstract class BaseElement {
         return element.isDisplayed();
         }
 
-    protected abstract List<? extends BaseElement> returnElementsList();
+    protected abstract List<? extends BaseElement> getElementsList();
 
-    public String getXPathToElement(WebElement element) {
-        return (String)
-                executor.executeScript(JavaScript.GET_ELEMENT_XPATH.getScript(), element);
+    public String getXpathForElements(WebElement element) {
+        return (String) executor.executeScript(JavaScript.GET_ELEMENT_XPATH.getScript(), element);
     }
 
     protected void waitUntilPresentAll() {
@@ -99,7 +98,6 @@ public abstract class BaseElement {
         waitUntilPresentAll();
         webElementsList = driver.findElements(xpath);
     }
-
 
     public String getText() {
         return getPresentElement().getText();
@@ -115,5 +113,4 @@ public abstract class BaseElement {
             clickWithoutWait(next);
         }
     }
-
 }

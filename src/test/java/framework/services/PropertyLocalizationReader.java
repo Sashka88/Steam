@@ -1,7 +1,5 @@
 package framework.services;
 
-import java.util.ResourceBundle;
-
 public class PropertyLocalizationReader {
     private String language;
     private String filename;

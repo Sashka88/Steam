@@ -11,12 +11,12 @@ public class Label extends BaseElement {
     }
 
     @Override
-    public List<Label> returnElementsList() {
+    public List<Label> getElementsList() {
         List<Label> labelList = new ArrayList<>();
         getPresentElements();
         for (WebElement webElementFromList : webElementsList) {
             labelList.add(
-                    new Label(By.xpath(getXPathToElement(webElementFromList))));
+                    new Label(By.xpath(getXpathForElements(webElementFromList))));
         }
         return labelList;
     }

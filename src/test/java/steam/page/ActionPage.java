@@ -5,9 +5,7 @@ import framework.elements.Label;
 import org.openqa.selenium.By;
 import steam.page.components.NavigationMenu;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class ActionPage extends BaseSteamPage {
     public static int finalMaxSale;
@@ -27,24 +25,25 @@ public class ActionPage extends BaseSteamPage {
     }
 
     public ActionPage getSalesValues() {
-        do {
-            addToArrays(lblGamesSales.returnElementsList());
+        List<Label> lblGamesSalesValue = lblGamesSales.getElementsList();
+        for(int i = 0; i < 3; i++) {
+            addToArrays(lblGamesSalesValue);
             btnNext.click();
-        } while (saleLabelsList.size() < saleList.size());
+        }
         findMaxSale();
         clickGame();
         return this;
     }
 
     private void addToArrays(List<Label> labels) {
-        while (saleList.size() < labels.size()) {
+        for(int i = 0; i < labels.size(); i++) {
             saleList.add(0);
         }
         for (Label label : labels) {
-            if (!label.getText().isEmpty() && saleList.get(labels.indexOf(label)) == 0) {
+            if (!label.getText().isEmpty()) {
                 saleList.set(
                         labels.indexOf(label),
-                        Integer.valueOf(label.getText().substring(1,3)));
+                        Integer.valueOf(label.getText().substring(1, 3)));
                 saleLabelsList.add(label);
             }
         }
@@ -66,7 +65,7 @@ public class ActionPage extends BaseSteamPage {
     private void clickGame() {
         if (indexesOfMaxSale.size() > 1) {
             int indexOfMaxSale = indexesOfMaxSale.get(new Random().nextInt(indexesOfMaxSale.size()));
-            String xpath = saleLabelsList.get(indexOfMaxSale).getXpathAsString() + xpathGameButton;
+            String xpath = saleLabelsList.get(indexOfMaxSale).getXpathAsString()+ xpathGameButton;
             new Button(By.xpath(xpath)).clickWithoutWait(btnNext);
         }
          else if (indexesOfMaxSale.size() == 1) {

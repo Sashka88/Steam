@@ -12,12 +12,12 @@ public class Button extends BaseElement {
     }
 
     @Override
-    public List<Button> returnElementsList() {
+    public List<Button> getElementsList() {
         List<Button> buttonsList = new ArrayList<>();
         getPresentElements();
         for (WebElement webElementFromList : webElementsList) {
             buttonsList.add(
-                    new Button(By.xpath(getXPathToElement(webElementFromList))));
+                    new Button(By.xpath(getXpathForElements(webElementFromList))));
         }
         return buttonsList;
     }
