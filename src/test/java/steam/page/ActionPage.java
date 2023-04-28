@@ -43,7 +43,7 @@ public class ActionPage extends BaseSteamPage {
             if (!label.getText().isEmpty()) {
                 saleList.set(
                         labels.indexOf(label),
-                        Integer.valueOf(label.getText().substring(1, 3)));
+                        Integer.valueOf(label.getText().substring(label.getText().length() - 3, label.getText().length() - 1)));
                 saleLabelsList.add(label);
             }
         }
@@ -60,6 +60,7 @@ public class ActionPage extends BaseSteamPage {
                 indexesOfMaxSale.add(i);
             }
         }
+        System.out.println(finalMaxSale);
     }
 
     private void clickGame() {
