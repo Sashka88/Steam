@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Button extends BaseElement {
-
     public Button(By xpath) {
         super(xpath);
     }

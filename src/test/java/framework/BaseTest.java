@@ -1,12 +1,12 @@
-package steam.test;
+package framework;
 
+import framework.browser.Browser;
 import framework.services.FileDownloader;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
-import framework.browser.Browser;
 
-import static framework.services.PropertyReader.getProperty;
+import static framework.services.PropertyReader.getPropertyByFilename;
 
 public class BaseTest {
     public static Browser browser;
@@ -20,8 +20,8 @@ public class BaseTest {
         browser = new Browser();
         softAssert = new SoftAssert();
         browser.maximizeWindow();
-        browser.navigatePage(getProperty("config", "baseUrl"));
-        fileDownloader = new FileDownloader(getProperty("config","fileName"));
+        browser.navigatePage(getPropertyByFilename("config", "baseUrl"));
+        fileDownloader = new FileDownloader(getPropertyByFilename("config","fileName"));
         fileDownloader.checkAndDeleteFile();
     }
 

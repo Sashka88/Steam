@@ -12,7 +12,7 @@ public class Browser {
     public Browser(){
         Browser.driver = getWebDriver();
         Browser.executor = (JavascriptExecutor)driver;
-}
+    }
 
     public void maximizeWindow() {
         driver.manage().window().maximize();

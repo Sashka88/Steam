@@ -12,16 +12,16 @@ import java.util.List;
 
 import static framework.browser.Browser.driver;
 import static framework.browser.Browser.executor;
-import static framework.services.PropertyReader.getProperty;
+import static framework.services.PropertyReader.getPropertyByFilename;
 
 public abstract class BaseElement {
-    protected long WAIT_TIMEOUT_SECONDS = Long.parseLong(getProperty("config", "waitingDuration"));
+    protected long WAIT_TIMEOUT_SECONDS = Long.parseLong(getPropertyByFilename("config", "waitingDuration"));
     public By xpath;
     protected WebElement element;
     protected List<WebElement> webElementsList = new ArrayList<>();
 
-    public BaseElement(By xpath) {
-        this.xpath = xpath;
+    public BaseElement(By locator) {
+        this.xpath = locator;
     }
 
     private void waitUntilPresenceOfElement(By xpath) {
@@ -105,12 +105,12 @@ public abstract class BaseElement {
 
     public String getXpathAsString() {return String.valueOf(xpath).substring(String.valueOf(xpath).indexOf("/"));}
 
-    public void clickWithoutWait(Button next) {
+    public void clickOnSlider(Button next) {
         try {
             driver.findElement(xpath).click();
         } catch (InvalidSelectorException | ElementNotInteractableException e) {
             next.click();
-            clickWithoutWait(next);
+            clickOnSlider(next);
         }
     }
 }

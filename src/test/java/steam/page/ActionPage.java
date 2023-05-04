@@ -66,12 +66,12 @@ public class ActionPage extends BaseSteamPage {
     private void clickGame() {
         if (indexesOfMaxSale.size() > 1) {
             int indexOfMaxSale = indexesOfMaxSale.get(new Random().nextInt(indexesOfMaxSale.size()));
-            String xpath = saleLabelsList.get(indexOfMaxSale).getXpathAsString()+ xpathGameButton;
-            new Button(By.xpath(xpath)).clickWithoutWait(btnNext);
+            String xpath = saleLabelsList.get(indexOfMaxSale).getXpathAsString() + xpathGameButton;
+            new Label(By.xpath(xpath)).clickOnSlider(btnNext);
         }
          else if (indexesOfMaxSale.size() == 1) {
              String xpath = saleLabelsList.get(indexesOfMaxSale.get(0)).getXpathAsString() + xpathGameButton;
-            new Button(By.xpath(xpath)).clickWithoutWait(btnNext);
+            new Label(By.xpath(xpath)).clickOnSlider(btnNext);
         }
     }
 }

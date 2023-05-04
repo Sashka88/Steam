@@ -1,6 +1,6 @@
 package steam.page.components;
 
-import steam.test.BaseTest;
+import framework.BaseTest;
 import framework.elements.BaseElement;
 import framework.elements.Button;
 import framework.elements.Label;

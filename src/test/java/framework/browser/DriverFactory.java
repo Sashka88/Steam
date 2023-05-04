@@ -1,6 +1,6 @@
 package framework.browser;
 
-import steam.test.BaseTest;
+import framework.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
