@@ -3,11 +3,12 @@ package steam.page.components;
 import framework.BaseTest;
 import framework.elements.BaseElement;
 import framework.elements.Button;
+import framework.elements.DropdownMenu;
 import org.openqa.selenium.By;
 
 public class SteamHeader {
     private Button btnInstallSteam = new Button(By.xpath("//div[@class='header_installsteam_btn header_installsteam_btn_green']"));
-    private Button btnLanguageMenu = new Button(By.xpath("//span[@id = 'language_pulldown']"));
+    private DropdownMenu drpLanguageMenu = new DropdownMenu(By.xpath("//span[@id = 'language_pulldown']"));
     private String btnLanguageOption = "//a[contains(@class, 'popup_menu_item tight')][contains(text(), '%s')]";
 
     public SteamHeader() {
@@ -24,11 +25,11 @@ public class SteamHeader {
     }
 
     public SteamHeader defineLanguage(String language) {
-        btnLanguageMenu.click();
-        Button btnLanguage = new Button(By.xpath(String.format(btnLanguageOption, language)));
-        switch (String.valueOf(btnLanguage.checkIsDisplayedWithoutWait())) {
-            case "true" -> btnLanguage.click();
-            case "false" -> btnLanguageMenu.click();
+        drpLanguageMenu.click();
+        DropdownMenu dmLanguage = new DropdownMenu(By.xpath(String.format(btnLanguageOption, language)));
+        switch (String.valueOf(dmLanguage.checkIsDisplayedWithoutWait())) {
+            case "true" -> dmLanguage.click();
+            case "false" -> drpLanguageMenu.click();
         }
         return this;
     }

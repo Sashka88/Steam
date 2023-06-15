@@ -21,6 +21,7 @@ public class BaseTest {
         softAssert = new SoftAssert();
         browser.maximizeWindow();
         browser.navigatePage(getPropertyByFilename("config", "baseUrl"));
+        browser.rejectCookies();
         fileDownloader = new FileDownloader(getPropertyByFilename("config","fileName"));
         fileDownloader.checkAndDeleteFile();
     }

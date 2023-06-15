@@ -44,7 +44,7 @@ public abstract class BaseElement {
 
     private WebElement getPresentElement() {
         waitUntilPresenceOfElement(xpath);
-        return element = driver.findElement(xpath);
+        return element = findElement(xpath);
     }
 
     private WebElement getVisibleElement() {
@@ -63,14 +63,21 @@ public abstract class BaseElement {
         getClickableElement().click();
     }
 
+    private WebElement findElement(By xpath){
+        return driver.findElement(xpath);
+    }
+
+    private List<WebElement> findElements(By xpath){
+        return driver.findElements(xpath);
+    }
+
     public void hoverElementAndClick() {
         new Actions(driver).moveToElement(getVisibleElement()).click().perform();
     }
 
     public Boolean checkIsDisplayedWithoutWait() {
         try {
-            WebElement element = driver.findElement(xpath);
-            return element.isDisplayed();
+            return findElement(xpath).isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
         }
@@ -96,7 +103,7 @@ public abstract class BaseElement {
 
     public void getPresentElements() {
         waitUntilPresentAll();
-        webElementsList = driver.findElements(xpath);
+        webElementsList = findElements(xpath);
     }
 
     public String getText() {
@@ -105,12 +112,12 @@ public abstract class BaseElement {
 
     public String getXpathAsString() {return String.valueOf(xpath).substring(String.valueOf(xpath).indexOf("/"));}
 
-    public void clickOnSlider(Button next) {
+    public void clickOnSlider(Button btnSlider) {
         try {
-            driver.findElement(xpath).click();
+            findElement(xpath).click();
         } catch (InvalidSelectorException | ElementNotInteractableException e) {
-            next.click();
-            clickOnSlider(next);
+            btnSlider.click();
+            clickOnSlider(btnSlider);
         }
     }
 }

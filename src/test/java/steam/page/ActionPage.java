@@ -26,7 +26,7 @@ public class ActionPage extends BaseSteamPage {
 
     public ActionPage getSalesValues() {
         List<Label> lblGamesSalesValue = lblGamesSales.getElementsList();
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 4; i++) {
             addToArrays(lblGamesSalesValue);
             btnNext.click();
         }
@@ -40,7 +40,7 @@ public class ActionPage extends BaseSteamPage {
             saleList.add(0);
         }
         for (Label label : labels) {
-            if (!label.getText().isEmpty()) {
+            if (!label.getText().isEmpty() && saleList.get(labels.indexOf(label)) == 0) {
                 saleList.set(
                         labels.indexOf(label),
                         Integer.valueOf(label.getText().substring(label.getText().length() - 3, label.getText().length() - 1)));
@@ -60,7 +60,6 @@ public class ActionPage extends BaseSteamPage {
                 indexesOfMaxSale.add(i);
             }
         }
-        System.out.println(finalMaxSale);
     }
 
     private void clickGame() {
