@@ -26,7 +26,7 @@ public class ActionPage extends BaseSteamPage {
 
     public ActionPage getSalesValues() {
         List<Label> lblGamesSalesValue = lblGamesSales.getElementsList();
-        for(int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             addToArrays(lblGamesSalesValue);
             btnNext.click();
         }
@@ -36,7 +36,7 @@ public class ActionPage extends BaseSteamPage {
     }
 
     private void addToArrays(List<Label> labels) {
-        for(int i = 0; i < labels.size(); i++) {
+        for (int i = 0; i < labels.size(); i++) {
             saleList.add(0);
         }
         for (Label label : labels) {
@@ -67,9 +67,8 @@ public class ActionPage extends BaseSteamPage {
             int indexOfMaxSale = indexesOfMaxSale.get(new Random().nextInt(indexesOfMaxSale.size()));
             String xpath = saleLabelsList.get(indexOfMaxSale).getXpathAsString() + xpathGameButton;
             new Label(By.xpath(xpath)).clickOnSlider(btnNext);
-        }
-         else if (indexesOfMaxSale.size() == 1) {
-             String xpath = saleLabelsList.get(indexesOfMaxSale.get(0)).getXpathAsString() + xpathGameButton;
+        } else if (indexesOfMaxSale.size() == 1) {
+            String xpath = saleLabelsList.get(indexesOfMaxSale.get(0)).getXpathAsString() + xpathGameButton;
             new Label(By.xpath(xpath)).clickOnSlider(btnNext);
         }
     }

@@ -7,7 +7,7 @@ import framework.elements.DropdownMenu;
 import org.openqa.selenium.By;
 
 public class SteamHeader {
-    private Button btnInstallSteam = new Button(By.xpath("//div[@class='header_installsteam_btn header_installsteam_btn_green']"));
+    private Button btnInstallSteam = new Button(By.xpath("//div[@class='header_installsteam_btn_content']"));
     private DropdownMenu drpLanguageMenu = new DropdownMenu(By.xpath("//span[@id = 'language_pulldown']"));
     private String btnLanguageOption = "//a[contains(@class, 'popup_menu_item tight')][contains(text(), '%s')]";
 
