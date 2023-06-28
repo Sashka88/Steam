@@ -4,7 +4,10 @@ import framework.BaseTest;
 import framework.elements.BaseElement;
 import framework.elements.Button;
 import framework.elements.DropdownMenu;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SteamHeader {
     private Button btnInstallSteam = new Button(By.xpath("//div[@class='header_installsteam_btn_content']"));
@@ -28,8 +31,12 @@ public class SteamHeader {
         drpLanguageMenu.click();
         DropdownMenu dmLanguage = new DropdownMenu(By.xpath(String.format(btnLanguageOption, language)));
         switch (String.valueOf(dmLanguage.checkIsDisplayedWithoutWait())) {
-            case "true" -> dmLanguage.click();
-            case "false" -> drpLanguageMenu.click();
+            case "true":
+                dmLanguage.click();
+                break;
+            case "false":
+                drpLanguageMenu.click();
+                break;
         }
         return this;
     }

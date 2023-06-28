@@ -14,9 +14,10 @@ import java.util.Map;
 public class DriverFactory {
     public static WebDriver driver;
 
+
     public static WebDriver getWebDriver() {
         switch (System.getProperty("browser")) {
-            case "Chrome" -> {
+            case "Chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("disable-popup-blocking");
@@ -29,16 +30,17 @@ public class DriverFactory {
                 prefs.put("download.directory_upgrade", true);
                 options.setExperimentalOption("prefs", prefs);
                 driver = new ChromeDriver(options);
-            }
-            case "Firefox" -> {
+                break;
+            case "Firefox":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addPreference("browser.download.folderList", 2);
                 firefoxOptions.addPreference("browser.download.dir", BaseTest.downloadPath);
                 firefoxOptions.addPreference("browser.helperApps.neverAsk.saveToDisk", "application/x-gzip");
                 driver = new FirefoxDriver(firefoxOptions);
-            }
-            default -> throw new RuntimeException("Incorrect Browser Name");
+                break;
+            default:
+                throw new RuntimeException("Incorrect Browser Name");
         }
         return driver;
     }
